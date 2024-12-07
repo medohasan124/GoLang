@@ -1,0 +1,42 @@
+package main
+
+import (
+    "fmt" 
+
+
+)
+
+func calc(a,b float32 , o string){
+      
+   switch o {
+   case "+" :
+      fmt.Println(a+b)
+   case "-" :
+      fmt.Println(a-b)
+   
+   default :
+      fmt.Println("Undefined")
+   }
+
+      
+   }
+
+ func main(){
+   var num1 float32
+   var num2 float32
+   var opiration string
+
+   print("type first number \n")
+   fmt.Scanln(&num1)
+
+   print("type the operation \n")
+   fmt.Scanln(&opiration)
+
+   print("type second number \n")
+   fmt.Scanln(&num2)
+
+   print("result is... \n")
+   calc(num1,num2,opiration)
+
+   
+ }
