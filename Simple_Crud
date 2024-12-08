@@ -1,0 +1,55 @@
+package main
+
+import (
+	"fmt"
+)
+
+/*
+Books
+
+	id , title , Auther
+
+	print
+	update
+	delete 
+
+*/
+
+type Book struct{
+	
+	Title string
+	Auther string
+}
+
+func printBook(book map[string]Book){
+	for index , val := range book{
+		
+		fmt.Printf("ID: %s  | Tilte: %s | Auther: %s \n" , index , val.Title , val.Auther)
+	}
+}
+
+func main(){
+
+	book := make(map[string]Book)
+	book["1FD"] = Book{ Title: "hari" , Auther: "Maryam"}
+	book["12D"] = Book{ Title: "mayri" , Auther: "Ahmed"}
+	book["3FD"] = Book{ Title: "Hapay" , Auther: "Omar"}
+
+
+	//Print Books
+	printBook(book)
+
+	//update
+	updateBook := book["1FD"]
+	updateBook.Title = "Hano"
+	book["1FD"] = updateBook
+	//after Update
+	println("update Successfly") 
+	printBook(book)
+
+	//Delete
+	delete(book ,"1FD")
+	//after Delete
+	println("Delete Successfly") 
+	printBook(book)
+}
