@@ -1,0 +1,23 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+ var conuter = 0
+func increment(){
+	for i :=1 ; i <=10000 ;i++{
+		conuter++
+	}
+}
+func main(){
+
+	go increment()
+
+	go increment()
+
+	time.Sleep(3 * time.Second)
+	fmt.Println("Final Counter:", conuter) 
+}
+
