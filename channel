@@ -1,0 +1,40 @@
+package main
+
+import (
+	"fmt"
+	"time"
+	
+	
+)
+
+	
+func ProcessUser(user string , ch chan string){
+	time.Sleep(1 * time.Second)
+	ch <- fmt.Sprintf("update User %s" , user)
+
+}
+
+func main(){
+	
+ users := []string{"Ahmed" , "Mohamed" , "Saeed"}
+
+ ch := make(chan string)
+
+
+ // go routuines
+
+ for _, name := range users{
+	go ProcessUser(name , ch)
+ }
+
+	// استقبال النتائج من القناة
+	for i := 0; i < len(users); i++ {
+		result := <-ch // استقبال النتيجة من القناة
+		fmt.Println(result)
+	}
+
+	fmt.Println("All users processed!")
+	
+	
+}
+
